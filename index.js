@@ -59,13 +59,13 @@ async function run() {
 
 
         // cetegories/:Id filter
-        // app.get('/cetegories/:id', async (req, res) => {
-        //     const product = req.params.id;
-        //     const query = { id: product };
-        //     const result = await allCarCollection.find(query).toArray();
-        //     res.send(result);
+        app.get('/cetegories/:id', async (req, res) => {
+            const product = req.params.id;
+            const query = { id: product };
+            const result = await allCarCollection.find(query).toArray();
+            res.send(result);
 
-        // })
+        })
 
         // all cullection
         app.get('/allProduct', async (req, res) => {
@@ -73,12 +73,12 @@ async function run() {
             const result = await allCarCollection.find(query).toArray();
             res.send(result)
         })
-        // app.get('/allProduct/:email', async (req, res) => {
-        //     const user = req.params.email
-        //     const query = { email: user };
-        //     const result = await allCarCollection.find(query).toArray();
-        //     res.send(result)
-        // })
+        app.get('/allProduct/:email', async (req, res) => {
+            const user = req.params.email
+            const query = { email: user };
+            const result = await allCarCollection.find(query).toArray();
+            res.send(result)
+        })
 
         //Booking Car Modal infromation
         app.post('/booking', async (req, res) => {
