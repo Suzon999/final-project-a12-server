@@ -43,11 +43,11 @@ async function run() {
         const adverticCollection = client.db('Car-Shop_Datas').collection('All-Advertic');
 
         // get all cetegories collctions
-        app.get('/cetegories', async (req, res) => {
-            const query = {};
-            const result = await CetegoriesCars.find(query).toArray();
-            res.send(result);
-        })
+        // app.get('/cetegories', async (req, res) => {
+        //     const query = {};
+        //     const result = await CetegoriesCars.find(query).toArray();
+        //     res.send(result);
+        // })
 
         // Product car post
         // all review parson add
