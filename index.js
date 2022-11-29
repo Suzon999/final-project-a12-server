@@ -15,23 +15,23 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ras
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 //JWT verifyToken 
-// async function verifyJWT(req, res, next) {
-//     const authHeder = req.headers.authorization;
-//     if (!authHeder) {
-//         return res.status(401).send('This parson unAthorizetion access')
-//     }
+async function verifyJWT(req, res, next) {
+    const authHeder = req.headers.authorization;
+    if (!authHeder) {
+        return res.status(401).send('This parson unAthorizetion access')
+    }
 
-//     const token = authHeder.split(' ')[1];
-//     jwt.verify(token, process.env.ACCSS_TOKEN, function (err, decoded) {
-//         if (err) {
-//             return res.status(402).send({ message: "forbiden access" })
-//         }
+    const token = authHeder.split(' ')[1];
+    jwt.verify(token, process.env.ACCSS_TOKEN, function (err, decoded) {
+        if (err) {
+            return res.status(402).send({ message: "forbiden access" })
+        }
 
-//         req.decoded = decoded;
-//         next()
-//     })
+        req.decoded = decoded;
+        next()
+    })
 
-// }
+}
 
 async function run() {
 
